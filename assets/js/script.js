@@ -15,8 +15,17 @@ $("input[type='text']").keypress(function(event) {
   if (event.which === 13) {
     let todoText = $(this).val();
     $("ul").append(`
-      <li><span>X</span> ${todoText}</li>
+      <li><span><i class="fas fa-trash-alt"></i></span> ${todoText}</li>
     `);
     $(this).val("");
+  }
+});
+
+$(".fa-edit").click(function() {
+  if ($("input").css("display") === "none") {
+    $("input").fadeIn();
+    $("input").focus();
+  } else {
+    $("input").fadeOut();
   }
 });
